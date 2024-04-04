@@ -6,17 +6,9 @@ spring:
     username: ${PGUSER}
     password: ${PGPASSWORD}
   jpa:
-    show-sql: true
     open-in-view: false
     hibernate:
       ddl-auto: validate
-    properties:
-      hibernate:
-        format_sql: true
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
-      settings:
-        trace: false
-        web-allow-others: false
+  sql:
+    init:
+      mode: always
