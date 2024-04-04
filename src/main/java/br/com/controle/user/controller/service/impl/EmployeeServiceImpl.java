@@ -27,7 +27,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Transactional
     @Override
     public Employee create(Employee employee) {
-        ofNullable(employee).orElseThrow(() -> new BusinessException("User to create must not be null."));
+        ofNullable(employee).orElseThrow(() -> new BusinessException("Employee must not be null."));
+        ofNullable(employee.getUser()).orElseThrow(() -> new BusinessException("User must not be null"));
         return repository.save(employee);
     }
 
